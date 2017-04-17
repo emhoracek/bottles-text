@@ -57,3 +57,30 @@ main = hspec $ do
                           \Take one down and pass it around, \
                           \96 bottles of beer on the wall."
       verses 98 97 `shouldBe` verses98and97
+    it "should display from 2 to 0 beers verses" $ do
+      let verses2thru0 = "2 bottles of beer on the wall, \
+                         \2 bottles of beer. \n\
+                         \Take one down and pass it around, \
+                         \1 bottle of beer on the wall.\
+                         \\n\n\
+                         \1 bottle of beer on the wall, \
+                         \1 bottle of beer. \n\
+                         \Take it down and pass it around, \
+                         \No more bottles of beer on the wall.\
+                         \\n\n\
+                         \No more bottles of beer on the wall, \
+                         \no more bottles of beer. \n\
+                         \Go to the store and buy some more, \
+                         \99 bottles of beer on the wall."
+      verses 2 0 `shouldBe` verses2thru0
+
+-- what happens when things go wrong?
+  describe "downTo" $ do
+    it "should generate a list of integers between two numbers" $ do
+      (5 `downTo` 1) `shouldBe` [5,4,3,2,1]
+    it "should work with both numbers the same" $ do
+      (5 `downTo` 5) `shouldBe` [5]
+    it "should return an empty list for numbers going up" $ do
+      (1 `downTo` 5) `shouldBe` []
+    it "should work ok with negative numbers" $ do
+      (1 `downTo` (-3)) `shouldBe` [1,0,-1,-2,-3]

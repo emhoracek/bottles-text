@@ -41,6 +41,14 @@ verse n =
   "Take one down and pass it around, " <>
   tshow (n-1) <> " bottles of beer on the wall."
 
+
+downTo :: Int -> Int -> [Int]
+downTo n1 n2 = [n1, n1-1..n2]
+
+-- ugh reverse ranges so ugly -- I'll make a helper copying Ruby's `downto`.
+-- but what happens if n1 isn't greater than n2?
+-- this makes me think about edgecases and error conditions, which 99 bottles hasn't discussed yet.
+
 verses :: Int -> Int -> Text
-verses _ _ =
-  verse 98 <> "\n\n" <> verse 97
+verses v1 v2 =
+  T.intercalate "\n\n" $ map verse (v1 `downTo` v2)
