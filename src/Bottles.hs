@@ -13,6 +13,16 @@ tshow = T.pack . show
 -- notes: I have to worry about converting `n` to a string, but sandi doesn't
 
 verse :: Int -> Text
+verse 0 =
+  "No more bottles of beer on the wall, \
+  \no more bottles of beer. \n\
+  \Go to the store and buy some more, \
+  \99 bottles of beer on the wall."
+verse 1 =
+  "1 bottle of beer on the wall, \
+  \1 bottle of beer. \n\
+  \Take it down and pass it around, \
+  \No more bottles of beer on the wall."
 verse 2 =
   "2 bottles of beer on the wall, \
   \2 bottles of beer. \n\
