@@ -37,7 +37,7 @@ main = hspec $ do
       let nextToLast = "1 bottle of beer on the wall, \
                        \1 bottle of beer. \n\
                        \Take it down and pass it around, \
-                       \No more bottles of beer on the wall."
+                       \no more bottles of beer on the wall."
       verse 1 `shouldBe` nextToLast
     it "should display the last verse" $ do
       let lastVerse = "No more bottles of beer on the wall, \

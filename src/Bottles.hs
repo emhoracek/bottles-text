@@ -29,7 +29,7 @@ verse 1 =
   "1 bottle of beer on the wall, \
   \1 bottle of beer. \n\
   \Take it down and pass it around, \
-  \No more bottles of beer on the wall."
+  \no more bottles of beer on the wall."
 verse 2 =
   "2 bottles of beer on the wall, \
   \2 bottles of beer. \n\
@@ -52,3 +52,6 @@ downTo n1 n2 = [n1, n1-1..n2]
 verses :: Int -> Int -> Text
 verses v1 v2 =
   T.intercalate "\n\n" $ map verse (v1 `downTo` v2)
+
+song :: Text
+song = verses 99 0
