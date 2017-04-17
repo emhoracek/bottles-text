@@ -13,8 +13,8 @@ removeSpaces :: Text -> Text
 removeSpaces = T.replace " " ""
 
 main :: IO ()
-main = hspec $
-  describe "99 bottles" $ do
+main = hspec $ do
+  describe "verse" $ do
     it "should display the first verse" $ do
       let firstVerse = "99 bottles of beer on the wall, \
                        \99 bottles of beer. \n\
@@ -45,3 +45,15 @@ main = hspec $
                       \Go to the store and buy some more, \
                       \99 bottles of beer on the wall."
       verse 0 `shouldBe` lastVerse
+  describe "verses" $ do
+    it "should display a couple of verses" $ do
+      let verses98and97 = "98 bottles of beer on the wall, \
+                          \98 bottles of beer. \n\
+                          \Take one down and pass it around, \
+                          \97 bottles of beer on the wall.\
+                          \\n\n\
+                          \97 bottles of beer on the wall, \
+                          \97 bottles of beer. \n\
+                          \Take one down and pass it around, \
+                          \96 bottles of beer on the wall."
+      verses 98 97 `shouldBe` verses98and97
