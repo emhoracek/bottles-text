@@ -20,18 +20,19 @@ tshow = T.pack . show
 -- I have to worry about converting `n` to a string, but sandi doesn't
 
 verse :: Int -> Text
-verse 0 =
-  "No more bottles of beer on the wall, \
-  \no more bottles of beer. \n\
-  \Go to the store and buy some more, \
-  \99 bottles of beer on the wall."
 -- changing the cases to make them the same one little bit at a time is the hardest part.
 -- if I keep patternmatching, then get overlapping patterns
 -- so first I'm changing this part to be a case statement
-verse n = quantity n <> " " <> container n <> " of beer on the wall, " <>
-          quantity n <> " " <> container n <> " of beer. \n" <>
-          "Take " <> pronoun n <> " down and pass it around, " <>
-          quantity (n-1) <> " " <> container (n-1) <> " of beer on the wall."
+verse n =
+  case n of
+    0 -> "No more bottles of beer on the wall, \
+         \no more bottles of beer. \n\
+         \Go to the store and buy some more, \
+         \99 bottles of beer on the wall."
+    _ -> quantity n <> " " <> container n <> " of beer on the wall, " <>
+         quantity n <> " " <> container n <> " of beer. \n" <>
+         "Take " <> pronoun n <> " down and pass it around, " <>
+         quantity (n-1) <> " " <> container (n-1) <> " of beer on the wall."
 
 -- can't take temporarily optional parameter
 container :: Int -> Text
