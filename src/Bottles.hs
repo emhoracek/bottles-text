@@ -38,7 +38,7 @@ verse n =
     2 -> tshow n <> " " <> container n <> " of beer on the wall, " <>
          tshow n <> " " <> container n <>  " of beer. \n" <>
          "Take one down and pass it around, " <>
-         tshow (n-1) <> " bottle of beer on the wall."
+         tshow (n-1) <> " " <> container (n-1) <> " of beer on the wall."
     _ -> tshow n <> " " <> container n <> " of beer on the wall, " <>
          tshow n <> " " <> container n <> " of beer. \n" <>
          "Take one down and pass it around, " <>
