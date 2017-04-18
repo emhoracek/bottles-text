@@ -36,7 +36,7 @@ verse n =
          \no more " <> container (n-1) <> " of beer on the wall."
     _ -> tshow n <> " " <> container n <> " of beer on the wall, " <>
          tshow n <> " " <> container n <> " of beer. \n" <>
-         "Take one down and pass it around, " <>
+         "Take " <> pronoun n <> " down and pass it around, " <>
          tshow (n-1) <> " " <> container (n-1) <> " of beer on the wall."
 
 -- can't take temporarily optional parameter
@@ -45,6 +45,8 @@ container 1 = "bottle"
 -- it's nice that this is VERY Open! And it really
 -- is a one line change, unlike the "if/else" in Ruby!
 container n = "bottles"
+
+pronoun n = "one"
 
 through :: Int -> Int -> [Int]
 through n1 n2 =
