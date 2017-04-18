@@ -2,6 +2,7 @@
 
 module Bottles where
 
+import           Data.Char   (toUpper)
 import           Data.Monoid ((<>))
 import           Data.Text   (Text)
 import qualified Data.Text   as T
@@ -23,9 +24,13 @@ verse :: Int -> Text
 -- changing the cases to make them the same one little bit at a time is the hardest part.
 -- if I keep patternmatching, then get overlapping patterns
 -- so first I'm changing this part to be a case statement
+-- haskell getting cutesy again. I just want to capitalize the first letter, not title case,
+-- so toTitle doesn't work! helper function time.
+-- In Ruby, authors ran into a type error here!! So that is funny.. :)
+--
 verse n =
   case n of
-    0 -> T.toTitle (quantity n) <> " bottles of beer on the wall, " <>
+    0 -> capitalize (quantity n) <> " bottles of beer on the wall, " <>
          quantity n <> " bottles of beer. \n\
          \Go to the store and buy some more, \
          \99 bottles of beer on the wall."
@@ -33,6 +38,10 @@ verse n =
          quantity n <> " " <> container n <> " of beer. \n" <>
          "Take " <> pronoun n <> " down and pass it around, " <>
          quantity (n-1) <> " " <> container (n-1) <> " of beer on the wall."
+
+capitalize :: Text -> Text
+capitalize "" = ""
+capitalize words = toUpper (T.head words) `T.cons` T.tail words
 
 -- can't take temporarily optional parameter
 container :: Int -> Text
