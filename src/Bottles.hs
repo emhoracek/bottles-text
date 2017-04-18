@@ -44,7 +44,8 @@ verse n =
          "Take one down and pass it around, " <>
          tshow (n-1) <> " bottles of beer on the wall."
 
-container = undefined
+container :: Text
+container = "bottles"
 
 through :: Int -> Int -> [Int]
 through n1 n2 =
