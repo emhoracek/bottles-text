@@ -30,14 +30,14 @@ verse 0 =
 -- so first I'm changing this part to be a case statement
 verse n =
   case n of
-    1 -> tshow n <> " " <> container n <> " of beer on the wall, " <>
-         tshow n <> " " <> container n <> " of beer. \n\
+    1 -> quantity n <> " " <> container n <> " of beer on the wall, " <>
+         quantity n <> " " <> container n <> " of beer. \n\
          \Take it down and pass " <> pronoun n <> " around, \
          \no more " <> container (n-1) <> " of beer on the wall."
-    _ -> tshow n <> " " <> container n <> " of beer on the wall, " <>
-         tshow n <> " " <> container n <> " of beer. \n" <>
+    _ -> quantity n <> " " <> container n <> " of beer on the wall, " <>
+         quantity n <> " " <> container n <> " of beer. \n" <>
          "Take " <> pronoun n <> " down and pass it around, " <>
-         tshow (n-1) <> " " <> container (n-1) <> " of beer on the wall."
+         quantity (n-1) <> " " <> container (n-1) <> " of beer on the wall."
 
 -- can't take temporarily optional parameter
 container :: Int -> Text
@@ -49,6 +49,9 @@ container n = "bottles"
 pronoun :: Int -> Text
 pronoun 1 = "it"
 pronoun n = "one"
+
+quantity :: Int -> Text
+quantity n = tshow n
 
 through :: Int -> Int -> [Int]
 through n1 n2 =
