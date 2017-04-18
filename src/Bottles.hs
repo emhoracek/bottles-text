@@ -42,11 +42,13 @@ verse n =
     _ -> tshow n <> " " <> container n <> " of beer on the wall, " <>
          tshow n <> " " <> container n <> " of beer. \n" <>
          "Take one down and pass it around, " <>
-         tshow (n-1) <> " " <> container n <> " of beer on the wall."
+         tshow (n-1) <> " " <> container (n-1) <> " of beer on the wall."
 
 -- can't take temporarily optional parameter
 container :: Int -> Text
 container 1 = "bottle"
+-- it's nice that this is VERY Open! And it really
+-- is a one line change, unlike the "if/else" in Ruby!
 container n = "bottles"
 
 through :: Int -> Int -> [Int]
