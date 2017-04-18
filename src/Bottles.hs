@@ -28,16 +28,10 @@ verse 0 =
 -- changing the cases to make them the same one little bit at a time is the hardest part.
 -- if I keep patternmatching, then get overlapping patterns
 -- so first I'm changing this part to be a case statement
-verse n =
-  case n of
-    1 -> quantity n <> " " <> container n <> " of beer on the wall, " <>
-         quantity n <> " " <> container n <> " of beer. \n\
-         \Take " <> pronoun n <> " down and pass it around, " <>
-         quantity (n-1) <> " " <> container (n-1) <> " of beer on the wall."
-    _ -> quantity n <> " " <> container n <> " of beer on the wall, " <>
-         quantity n <> " " <> container n <> " of beer. \n" <>
-         "Take " <> pronoun n <> " down and pass it around, " <>
-         quantity (n-1) <> " " <> container (n-1) <> " of beer on the wall."
+verse n = quantity n <> " " <> container n <> " of beer on the wall, " <>
+          quantity n <> " " <> container n <> " of beer. \n" <>
+          "Take " <> pronoun n <> " down and pass it around, " <>
+          quantity (n-1) <> " " <> container (n-1) <> " of beer on the wall."
 
 -- can't take temporarily optional parameter
 container :: Int -> Text
