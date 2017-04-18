@@ -35,10 +35,10 @@ verse 1 =
 -- so first I'm changing this part to be a case statement
 verse n =
   case n of
-    2 -> "2 bottles of beer on the wall, \
-         \2 bottles of beer. \n\
-         \Take one down and pass it around, \
-         \1 bottle of beer on the wall."
+    2 -> tshow n <> " bottles of beer on the wall, " <>
+         tshow n <> " bottles of beer. \n" <>
+         "Take one down and pass it around, " <>
+         tshow (n-1) <> " bottle of beer on the wall."
     _ -> tshow n <> " bottles of beer on the wall, " <>
          tshow n <> " bottles of beer. \n" <>
          "Take one down and pass it around, " <>
