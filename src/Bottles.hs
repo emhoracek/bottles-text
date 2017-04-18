@@ -32,7 +32,7 @@ verse n =
   case n of
     1 -> tshow n <> " " <> container n <> " of beer on the wall, " <>
          tshow n <> " " <> container n <> " of beer. \n\
-         \Take it down and pass it around, \
+         \Take it down and pass " <> pronoun n <> " around, \
          \no more " <> container (n-1) <> " of beer on the wall."
     _ -> tshow n <> " " <> container n <> " of beer on the wall, " <>
          tshow n <> " " <> container n <> " of beer. \n" <>
