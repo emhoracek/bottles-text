@@ -30,16 +30,19 @@ verse 1 =
   \1 bottle of beer. \n\
   \Take it down and pass it around, \
   \no more bottles of beer on the wall."
-verse 2 =
-  "2 bottles of beer on the wall, \
-  \2 bottles of beer. \n\
-  \Take one down and pass it around, \
-  \1 bottle of beer on the wall."
+-- changing the cases to make them the same one little bit at a time is the hardest part.
+-- if I keep patternmatching, then get overlapping patterns
+-- so first I'm changing this part to be a case statement
 verse n =
-  tshow n <> " bottles of beer on the wall, " <>
-  tshow n <> " bottles of beer. \n" <>
-  "Take one down and pass it around, " <>
-  tshow (n-1) <> " bottles of beer on the wall."
+  case n of
+    2 -> "2 bottles of beer on the wall, \
+         \2 bottles of beer. \n\
+         \Take one down and pass it around, \
+         \1 bottle of beer on the wall."
+    _ -> tshow n <> " bottles of beer on the wall, " <>
+         tshow n <> " bottles of beer. \n" <>
+         "Take one down and pass it around, " <>
+         tshow (n-1) <> " bottles of beer on the wall."
 
 through :: Int -> Int -> [Int]
 through n1 n2 =
