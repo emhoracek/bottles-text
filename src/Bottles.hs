@@ -32,8 +32,8 @@ verse n =
   case n of
     1 -> quantity n <> " " <> container n <> " of beer on the wall, " <>
          quantity n <> " " <> container n <> " of beer. \n\
-         \Take it down and pass " <> pronoun n <> " around, \
-         \no more " <> container (n-1) <> " of beer on the wall."
+         \Take it down and pass " <> pronoun n <> " around, " <>
+         quantity (n-1) <> " " <> container (n-1) <> " of beer on the wall."
     _ -> quantity n <> " " <> container n <> " of beer on the wall, " <>
          quantity n <> " " <> container n <> " of beer. \n" <>
          "Take " <> pronoun n <> " down and pass it around, " <>
@@ -51,6 +51,7 @@ pronoun 1 = "it"
 pronoun n = "one"
 
 quantity :: Int -> Text
+quantity 0 = "no more"
 quantity n = tshow n
 
 through :: Int -> Int -> [Int]
