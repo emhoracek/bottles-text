@@ -35,17 +35,18 @@ verse 1 =
 -- so first I'm changing this part to be a case statement
 verse n =
   case n of
-    2 -> tshow n <> " bottles of beer on the wall, " <>
-         tshow n <> " bottles of beer. \n" <>
+    2 -> tshow n <> " " <> container n <> " of beer on the wall, " <>
+         tshow n <> " " <> container n <>  " of beer. \n" <>
          "Take one down and pass it around, " <>
          tshow (n-1) <> " bottle of beer on the wall."
-    _ -> tshow n <> " bottles of beer on the wall, " <>
-         tshow n <> " bottles of beer. \n" <>
+    _ -> tshow n <> " " <> container n <> " of beer on the wall, " <>
+         tshow n <> " " <> container n <> " of beer. \n" <>
          "Take one down and pass it around, " <>
-         tshow (n-1) <> " bottles of beer on the wall."
+         tshow (n-1) <> " " <> container n <> " of beer on the wall."
 
-container :: Text
-container = "bottles"
+-- can't take temporarily optional parameter
+container :: Int -> Text
+container n = "bottles"
 
 through :: Int -> Int -> [Int]
 through n1 n2 =
