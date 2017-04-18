@@ -25,8 +25,8 @@ verse :: Int -> Text
 -- so first I'm changing this part to be a case statement
 verse n =
   case n of
-    0 -> "No more bottles of beer on the wall, \
-         \no more bottles of beer. \n\
+    0 -> T.toTitle (quantity n) <> " bottles of beer on the wall, " <>
+         quantity n <> " bottles of beer. \n\
          \Go to the store and buy some more, \
          \99 bottles of beer on the wall."
     _ -> quantity n <> " " <> container n <> " of beer on the wall, " <>
