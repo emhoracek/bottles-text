@@ -46,6 +46,7 @@ verse n =
 
 -- can't take temporarily optional parameter
 container :: Int -> Text
+container 1 = "bottle"
 container n = "bottles"
 
 through :: Int -> Int -> [Int]
