@@ -30,10 +30,10 @@ verse 0 =
 -- so first I'm changing this part to be a case statement
 verse n =
   case n of
-    1 -> tshow n <> " bottle of beer on the wall, " <>
-         tshow n <> " bottle of beer. \n\
+    1 -> tshow n <> " " <> container n <> " of beer on the wall, " <>
+         tshow n <> " " <> container n <> " of beer. \n\
          \Take it down and pass it around, \
-         \no more bottles of beer on the wall."
+         \no more " <> container (n-1) <> " of beer on the wall."
     _ -> tshow n <> " " <> container n <> " of beer on the wall, " <>
          tshow n <> " " <> container n <> " of beer. \n" <>
          "Take one down and pass it around, " <>
