@@ -46,6 +46,8 @@ container 1 = "bottle"
 -- is a one line change, unlike the "if/else" in Ruby!
 container n = "bottles"
 
+pronoun :: Int -> Text
+pronoun 1 = "it"
 pronoun n = "one"
 
 through :: Int -> Int -> [Int]
