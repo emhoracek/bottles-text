@@ -5,9 +5,9 @@ module Main where
 import           Data.Text       (Text)
 import qualified Data.Text       as T
 import           Test.Hspec
+import           Test.QuickCheck
 
 import           Bottles
-
 
 removeSpaces :: Text -> Text
 removeSpaces = T.replace " " ""
@@ -73,6 +73,16 @@ main = hspec $ do
                          \Go to the store and buy some more, \
                          \99 bottles of beer on the wall."
       verses 2 0 `shouldBe` verses2thru0
+
+
+    -- Before I read the bit about testing one function against another
+    it "should display arbitrary verses" $ property $
+      \v1 v2 -> let (Positive n1) = v1
+                    (Positive n2) = v2
+                    range f = if n1 > n2 then f n1 n2
+                                       else f n2 n1 in
+                  verse n1 `T.isInfixOf` range verses
+                  && verse n2 `T.isInfixOf` range verses
 
 
 -- what happens when things go wrong?
