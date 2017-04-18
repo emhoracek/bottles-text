@@ -44,6 +44,8 @@ verse n =
          "Take one down and pass it around, " <>
          tshow (n-1) <> " bottles of beer on the wall."
 
+container = undefined
+
 through :: Int -> Int -> [Int]
 through n1 n2 =
   if n1 > n2 then [n1, n1-1..n2]
