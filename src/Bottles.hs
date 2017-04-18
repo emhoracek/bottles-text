@@ -25,20 +25,15 @@ verse 0 =
   \no more bottles of beer. \n\
   \Go to the store and buy some more, \
   \99 bottles of beer on the wall."
-verse 1 =
-  "1 bottle of beer on the wall, \
-  \1 bottle of beer. \n\
-  \Take it down and pass it around, \
-  \no more bottles of beer on the wall."
 -- changing the cases to make them the same one little bit at a time is the hardest part.
 -- if I keep patternmatching, then get overlapping patterns
 -- so first I'm changing this part to be a case statement
 verse n =
   case n of
-    2 -> tshow n <> " " <> container n <> " of beer on the wall, " <>
-         tshow n <> " " <> container n <>  " of beer. \n" <>
-         "Take one down and pass it around, " <>
-         tshow (n-1) <> " " <> container (n-1) <> " of beer on the wall."
+    1 -> "1 bottle of beer on the wall, \
+         \1 bottle of beer. \n\
+         \Take it down and pass it around, \
+         \no more bottles of beer on the wall."
     _ -> tshow n <> " " <> container n <> " of beer on the wall, " <>
          tshow n <> " " <> container n <> " of beer. \n" <>
          "Take one down and pass it around, " <>
