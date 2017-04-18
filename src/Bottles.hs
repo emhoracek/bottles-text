@@ -32,7 +32,7 @@ verse n =
   case n of
     1 -> quantity n <> " " <> container n <> " of beer on the wall, " <>
          quantity n <> " " <> container n <> " of beer. \n\
-         \Take it down and pass " <> pronoun n <> " around, " <>
+         \Take " <> pronoun n <> " down and pass it around, " <>
          quantity (n-1) <> " " <> container (n-1) <> " of beer on the wall."
     _ -> quantity n <> " " <> container n <> " of beer on the wall, " <>
          quantity n <> " " <> container n <> " of beer. \n" <>
