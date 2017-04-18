@@ -1,3 +1,7 @@
 module Main where
 
-main = print "hello world"
+import           Data.Text
+
+import           Bottles
+
+main = putStrLn $ unpack song
