@@ -32,9 +32,9 @@ verse :: Int -> Text
 verse n =
   case n of
     0 -> capitalize (quantity n) <> " " <> container n <> " of beer on the wall, " <>
-         quantity n  <> " " <> container n <> " of beer. \n\
-         \Go to the store and buy some more, \
-         \99 bottles of beer on the wall."
+         quantity n  <> " " <> container n <> " of beer. \n" <>
+         action n <> ", " <>
+         "99 bottles of beer on the wall."
     _ -> quantity n <> " " <> container n <> " of beer on the wall, " <>
          quantity n <> " " <> container n <> " of beer. \n" <>
          action n <> ", " <>
@@ -60,6 +60,7 @@ quantity 0 = "no more"
 quantity n = tshow n
 
 action :: Int -> Text
+action 0 = "Go to the store and buy some more"
 action n = "Take " <> pronoun n <> " down and pass it around"
 
 through :: Int -> Int -> [Int]
