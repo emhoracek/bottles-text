@@ -37,7 +37,7 @@ verse n =
          \99 bottles of beer on the wall."
     _ -> quantity n <> " " <> container n <> " of beer on the wall, " <>
          quantity n <> " " <> container n <> " of beer. \n" <>
-         "Take " <> pronoun n <> " down and pass it around, " <>
+         action n <> ", " <>
          quantity (n-1) <> " " <> container (n-1) <> " of beer on the wall."
 
 capitalize :: Text -> Text
@@ -58,6 +58,9 @@ pronoun n = "one"
 quantity :: Int -> Text
 quantity 0 = "no more"
 quantity n = tshow n
+
+action :: Int -> Text
+action n = "Take " <> pronoun n <> " down and pass it around"
 
 through :: Int -> Int -> [Int]
 through n1 n2 =
