@@ -18,7 +18,6 @@ tshow = T.pack . show
 -- 4) add function signature and garbage result
 -- 5) fix it
 
--- I have to worry about converting `n` to a string, but sandi doesn't
 
 verse :: Int -> Text
 -- changing the cases to make them the same one little bit at a time is the hardest part.
@@ -28,25 +27,14 @@ verse :: Int -> Text
 -- so toTitle doesn't work! helper function time.
 -- In Ruby, authors ran into a type error here!! So that is funny.. :)
 -- Not sure how Liskov Substitution works here-- something to think about
-
-verse n =
-  case n of
-    0 -> capitalize (quantity n) <> " " <> container n <> " of beer on the wall, " <>
-         quantity n  <> " " <> container n <> " of beer. \n" <>
-         action n <> ", " <>
-         quantity (next n) <> " " <> container (next n) <> " of beer on the wall."
-    _ -> capitalize (quantity n) <> " " <> container n <> " of beer on the wall, " <>
-         quantity n <> " " <> container n <> " of beer. \n" <>
-         action n <> ", " <>
-         quantity (next n) <> " " <> container (next n) <> " of beer on the wall."
+verse n = capitalize (quantity n) <> " " <> container n <> " of beer on the wall, " <>
+          quantity n <> " " <> container n <> " of beer. \n" <>
+          action n <> ", " <>
+          quantity (next n) <> " " <> container (next n) <> " of beer on the wall."
 
 capitalize :: Text -> Text
 capitalize "" = ""
 capitalize words = toUpper (T.head words) `T.cons` T.tail words
-
-next :: Int -> Int
-next 0 = 99
-next n = n - 1
 
 -- can't take temporarily optional parameter
 container :: Int -> Text
@@ -59,6 +47,7 @@ pronoun :: Int -> Text
 pronoun 1 = "it"
 pronoun n = "one"
 
+-- I have to worry about converting `n` to a string, but sandi doesn't
 quantity :: Int -> Text
 quantity 0 = "no more"
 quantity n = tshow n
@@ -66,6 +55,10 @@ quantity n = tshow n
 action :: Int -> Text
 action 0 = "Go to the store and buy some more"
 action n = "Take " <> pronoun n <> " down and pass it around"
+
+next :: Int -> Int
+next 0 = 99
+next n = n - 1
 
 through :: Int -> Int -> [Int]
 through n1 n2 =
