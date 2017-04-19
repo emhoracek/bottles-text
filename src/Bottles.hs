@@ -44,6 +44,10 @@ capitalize :: Text -> Text
 capitalize "" = ""
 capitalize words = toUpper (T.head words) `T.cons` T.tail words
 
+next :: Int -> Int
+next 0 = 99
+next n = n - 1
+
 -- can't take temporarily optional parameter
 container :: Int -> Text
 container 1 = "bottle"
