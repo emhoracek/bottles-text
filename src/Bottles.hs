@@ -35,7 +35,7 @@ verse n =
          quantity n  <> " " <> container n <> " of beer. \n" <>
          action n <> ", " <>
          quantity (next n) <> " " <> container (next n) <> " of beer on the wall."
-    _ -> quantity n <> " " <> container n <> " of beer on the wall, " <>
+    _ -> capitalize (quantity n) <> " " <> container n <> " of beer on the wall, " <>
          quantity n <> " " <> container n <> " of beer. \n" <>
          action n <> ", " <>
          quantity (next n) <> " " <> container (next n) <> " of beer on the wall."
