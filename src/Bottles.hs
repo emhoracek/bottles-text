@@ -27,11 +27,12 @@ verse :: Int -> Text
 -- haskell getting cutesy again. I just want to capitalize the first letter, not title case,
 -- so toTitle doesn't work! helper function time.
 -- In Ruby, authors ran into a type error here!! So that is funny.. :)
---
+-- Not sure how Liskov Substitution works here-- something to think about
+
 verse n =
   case n of
-    0 -> capitalize (quantity n) <> " bottles of beer on the wall, " <>
-         quantity n <> " bottles of beer. \n\
+    0 -> capitalize (quantity n) <> " " <> container n <> " of beer on the wall, " <>
+         quantity n  <> " " <> container n <> " of beer. \n\
          \Go to the store and buy some more, \
          \99 bottles of beer on the wall."
     _ -> quantity n <> " " <> container n <> " of beer on the wall, " <>
