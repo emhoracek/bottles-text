@@ -37,29 +37,21 @@ verse n = capitalize (quantity n) <> " " <> container n <> " of beer on the wall
           action n <> ", " <>
           quantity (next n) <> " " <> container (next n) <> " of beer on the wall."
 
--- can't take temporarily optional parameter
 container :: Int -> Text
-container 1 = "bottle"
--- it's nice that this is VERY Open! And it really
--- is a one line change, unlike the "if/else" in Ruby!
-container n = "bottles"
+container n = B.container n
 
 pronoun :: Int -> Text
-pronoun 1 = "it"
-pronoun n = "one"
+pronoun n = B.pronoun n
 
 -- I have to worry about converting `n` to a string, but sandi doesn't
 quantity :: Int -> Text
-quantity 0 = "no more"
-quantity n = tshow n
+quantity n = B.quantity n
 
 action :: Int -> Text
-action 0 = "Go to the store and buy some more"
-action n = "Take " <> pronoun n <> " down and pass it around"
+action n = B.action n
 
 next :: Int -> Int
-next 0 = 99
-next n = n - 1
+next n = B.next n
 
 through :: Int -> Int -> [Int]
 through n1 n2 =
