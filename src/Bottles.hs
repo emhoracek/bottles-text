@@ -11,6 +11,10 @@ import qualified Data.Text   as T
 tshow :: Show a => a -> Text
 tshow = T.pack . show
 
+capitalize :: Text -> Text
+capitalize "" = ""
+capitalize words = toUpper (T.head words) `T.cons` T.tail words
+
 -- Path is more like:
 -- 1) doesn't compile ("Not in scope")
 -- 2) Insert blah = undefined
@@ -31,10 +35,6 @@ verse n = capitalize (quantity n) <> " " <> container n <> " of beer on the wall
           quantity n <> " " <> container n <> " of beer. \n" <>
           action n <> ", " <>
           quantity (next n) <> " " <> container (next n) <> " of beer on the wall."
-
-capitalize :: Text -> Text
-capitalize "" = ""
-capitalize words = toUpper (T.head words) `T.cons` T.tail words
 
 -- can't take temporarily optional parameter
 container :: Int -> Text
