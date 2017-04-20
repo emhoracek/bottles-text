@@ -15,10 +15,14 @@ instance Show BottleNumber where
   show bn = T.unpack $ quantity bn <> " " <> container bn
 
 data BottleNumber' =
-  BottleNumber'
+  BottleNumber' { container' :: Text
+                , quantity'  :: Text
+                , action'    :: Text
+                , pronoun'   :: Text
+                , next'      :: BottleNumber }
 
-mkBottleNumber :: BottleNumber'
-mkBottleNumber = BottleNumber'
+instance Show BottleNumber' where
+  show bn = T.unpack $ quantity' bn <> " " <> container' bn
 
 container :: BottleNumber -> Text
 container (BottleNumber 1) = "bottle"
