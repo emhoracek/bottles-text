@@ -51,7 +51,7 @@ action :: Int -> Text
 action n = B.action (B.BottleNumber n)
 
 next :: Int -> Int
-next n = B.next n
+next n = B.bNumber (B.next (B.BottleNumber n))
 
 through :: Int -> Int -> [Int]
 through n1 n2 =

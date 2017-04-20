@@ -28,6 +28,6 @@ action :: BottleNumber -> Text
 action (BottleNumber 0) = "Go to the store and buy some more"
 action (BottleNumber n) = "Take " <> pronoun n <> " down and pass it around"
 
-next :: Int -> Int
-next 0 = 99
-next n = n - 1
+next :: BottleNumber -> BottleNumber
+next (BottleNumber 0) = BottleNumber 99
+next (BottleNumber n) = BottleNumber (n - 1)
