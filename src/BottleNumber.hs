@@ -17,6 +17,9 @@ instance Show BottleNumber where
 data BottleNumber' =
   BottleNumber'
 
+mkBottleNumber :: BottleNumber'
+mkBottleNumber = BottleNumber'
+
 container :: BottleNumber -> Text
 container (BottleNumber 1) = "bottle"
 container n = "bottles"
