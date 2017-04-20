@@ -7,6 +7,7 @@ import           Data.Monoid  ((<>))
 import           Data.Text    (Text)
 import qualified Data.Text    as T
 
+import           BottleNumber
 import qualified BottleNumber as B
 
 tshow :: Show a => a -> Text
