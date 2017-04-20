@@ -9,9 +9,6 @@ import qualified Data.Text    as T
 
 import           BottleNumber
 
-tshow :: Show a => a -> Text
-tshow = T.pack . show
-
 capitalize :: Text -> Text
 capitalize "" = ""
 capitalize words = toUpper (T.head words) `T.cons` T.tail words
@@ -34,10 +31,10 @@ verse :: Int -> Text
 -- Not sure how Liskov Substitution works here-- something to think about
 verse n =
   let bn = BottleNumber n in
-    capitalize (quantity bn) <> " " <> container bn <> " of beer on the wall, " <>
-    quantity bn <> " " <> container bn <> " of beer. \n" <>
+    capitalize (tshow bn) <> " of beer on the wall, " <>
+    tshow bn <> " of beer. \n" <>
     action bn <> ", " <>
-    quantity (next bn) <> " " <> container (next bn) <> " of beer on the wall."
+    tshow (next bn) <> " of beer on the wall."
 
 through :: Int -> Int -> [Int]
 through n1 n2 =

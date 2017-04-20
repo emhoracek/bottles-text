@@ -11,6 +11,9 @@ tshow = T.pack . show
 
 newtype BottleNumber = BottleNumber { bNumber :: Int }
 
+instance Show BottleNumber where
+  show bn = T.unpack $ quantity bn <> " " <> container bn
+
 container :: BottleNumber -> Text
 container (BottleNumber 1) = "bottle"
 container n = "bottles"
