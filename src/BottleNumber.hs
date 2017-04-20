@@ -15,8 +15,8 @@ container :: BottleNumber -> Text
 container (BottleNumber 1) = "bottle"
 container n = "bottles"
 
-pronoun :: Int -> Text
-pronoun 1 = "it"
+pronoun :: BottleNumber -> Text
+pronoun (BottleNumber 1) = "it"
 pronoun n = "one"
 
 -- I have to worry about converting `n` to a string, but sandi doesn't
@@ -26,7 +26,7 @@ quantity (BottleNumber n) = tshow n
 
 action :: BottleNumber -> Text
 action (BottleNumber 0) = "Go to the store and buy some more"
-action (BottleNumber n) = "Take " <> pronoun n <> " down and pass it around"
+action bn = "Take " <> pronoun bn <> " down and pass it around"
 
 next :: BottleNumber -> BottleNumber
 next (BottleNumber 0) = BottleNumber 99

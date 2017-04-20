@@ -40,10 +40,6 @@ verse n = capitalize (quantity n) <> " " <> container n <> " of beer on the wall
 container :: Int -> Text
 container n = B.container (B.BottleNumber n)
 
-pronoun :: Int -> Text
-pronoun n = B.pronoun n
-
--- I have to worry about converting `n` to a string, but sandi doesn't
 quantity :: Int -> Text
 quantity n = B.quantity (B.BottleNumber n)
 
