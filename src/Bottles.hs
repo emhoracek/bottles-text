@@ -38,7 +38,7 @@ verse n = capitalize (quantity n) <> " " <> container n <> " of beer on the wall
           quantity (next n) <> " " <> container (next n) <> " of beer on the wall."
 
 container :: Int -> Text
-container n = B.container n
+container n = B.container (B.BottleNumber n)
 
 pronoun :: Int -> Text
 pronoun n = B.pronoun n

@@ -11,11 +11,8 @@ tshow = T.pack . show
 
 newtype BottleNumber = BottleNumber { bNumber :: Int }
 
--- can't take temporarily optional parameter
-container :: Int -> Text
-container 1 = "bottle"
--- it's nice that this is VERY Open! And it really
--- is a one line change, unlike the "if/else" in Ruby!
+container :: BottleNumber -> Text
+container (BottleNumber 1) = "bottle"
 container n = "bottles"
 
 pronoun :: Int -> Text
