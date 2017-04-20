@@ -34,10 +34,10 @@ verse :: Int -> Text
 -- Not sure how Liskov Substitution works here-- something to think about
 verse n =
   let bn = B.BottleNumber n in
-    capitalize (quantity n) <> " " <> container n <> " of beer on the wall, " <>
-    quantity n <> " " <> container n <> " of beer. \n" <>
-    action n <> ", " <>
-    quantity (next n) <> " " <> container (next n) <> " of beer on the wall."
+    capitalize (B.quantity bn) <> " " <> B.container bn <> " of beer on the wall, " <>
+    B.quantity bn <> " " <> B.container bn <> " of beer. \n" <>
+    B.action bn <> ", " <>
+    B.quantity (B.next bn) <> " " <> B.container (B.next bn) <> " of beer on the wall."
 
 container :: Int -> Text
 container n = B.container (B.BottleNumber n)
