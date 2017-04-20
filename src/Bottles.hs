@@ -8,7 +8,6 @@ import           Data.Text    (Text)
 import qualified Data.Text    as T
 
 import           BottleNumber
-import qualified BottleNumber as B
 
 tshow :: Show a => a -> Text
 tshow = T.pack . show
@@ -34,11 +33,11 @@ verse :: Int -> Text
 -- In Ruby, authors ran into a type error here!! So that is funny.. :)
 -- Not sure how Liskov Substitution works here-- something to think about
 verse n =
-  let bn = B.BottleNumber n in
-    capitalize (B.quantity bn) <> " " <> B.container bn <> " of beer on the wall, " <>
-    B.quantity bn <> " " <> B.container bn <> " of beer. \n" <>
-    B.action bn <> ", " <>
-    B.quantity (B.next bn) <> " " <> B.container (B.next bn) <> " of beer on the wall."
+  let bn = BottleNumber n in
+    capitalize (quantity bn) <> " " <> container bn <> " of beer on the wall, " <>
+    quantity bn <> " " <> container bn <> " of beer. \n" <>
+    action bn <> ", " <>
+    quantity (next bn) <> " " <> container (next bn) <> " of beer on the wall."
 
 through :: Int -> Int -> [Int]
 through n1 n2 =
