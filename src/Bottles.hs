@@ -45,7 +45,7 @@ pronoun n = B.pronoun n
 
 -- I have to worry about converting `n` to a string, but sandi doesn't
 quantity :: Int -> Text
-quantity n = B.quantity n
+quantity n = B.quantity (B.BottleNumber n)
 
 action :: Int -> Text
 action n = B.action n

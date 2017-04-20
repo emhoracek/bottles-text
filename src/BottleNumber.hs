@@ -20,9 +20,9 @@ pronoun 1 = "it"
 pronoun n = "one"
 
 -- I have to worry about converting `n` to a string, but sandi doesn't
-quantity :: Int -> Text
-quantity 0 = "no more"
-quantity n = tshow n
+quantity :: BottleNumber -> Text
+quantity (BottleNumber 0) = "no more"
+quantity (BottleNumber n) = tshow n
 
 action :: Int -> Text
 action 0 = "Go to the store and buy some more"
