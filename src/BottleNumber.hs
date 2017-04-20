@@ -14,6 +14,9 @@ newtype BottleNumber = BottleNumber { bNumber :: Int }
 instance Show BottleNumber where
   show bn = T.unpack $ quantity bn <> " " <> container bn
 
+data BottleNumber' =
+  BottleNumber'
+
 container :: BottleNumber -> Text
 container (BottleNumber 1) = "bottle"
 container n = "bottles"
