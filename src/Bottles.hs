@@ -32,10 +32,12 @@ verse :: Int -> Text
 -- so toTitle doesn't work! helper function time.
 -- In Ruby, authors ran into a type error here!! So that is funny.. :)
 -- Not sure how Liskov Substitution works here-- something to think about
-verse n = capitalize (quantity n) <> " " <> container n <> " of beer on the wall, " <>
-          quantity n <> " " <> container n <> " of beer. \n" <>
-          action n <> ", " <>
-          quantity (next n) <> " " <> container (next n) <> " of beer on the wall."
+verse n =
+  let bn = B.BottleNumber n in
+    capitalize (quantity n) <> " " <> container n <> " of beer on the wall, " <>
+    quantity n <> " " <> container n <> " of beer. \n" <>
+    action n <> ", " <>
+    quantity (next n) <> " " <> container (next n) <> " of beer on the wall."
 
 container :: Int -> Text
 container n = B.container (B.BottleNumber n)
