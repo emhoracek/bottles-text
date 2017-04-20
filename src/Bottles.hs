@@ -2,11 +2,12 @@
 
 module Bottles where
 
-import           Data.Char   (toUpper)
-import           Data.Monoid ((<>))
-import           Data.Text   (Text)
-import qualified Data.Text   as T
+import           Data.Char    (toUpper)
+import           Data.Monoid  ((<>))
+import           Data.Text    (Text)
+import qualified Data.Text    as T
 
+import qualified BottleNumber as B
 
 tshow :: Show a => a -> Text
 tshow = T.pack . show
