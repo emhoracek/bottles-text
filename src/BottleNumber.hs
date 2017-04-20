@@ -9,6 +9,8 @@ import qualified Data.Text   as T
 tshow :: Show a => a -> Text
 tshow = T.pack . show
 
+newtype BottleNumber = BottleNumber { bNumber :: Int }
+
 -- can't take temporarily optional parameter
 container :: Int -> Text
 container 1 = "bottle"
