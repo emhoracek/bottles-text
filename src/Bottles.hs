@@ -48,7 +48,7 @@ quantity :: Int -> Text
 quantity n = B.quantity (B.BottleNumber n)
 
 action :: Int -> Text
-action n = B.action n
+action n = B.action (B.BottleNumber n)
 
 next :: Int -> Int
 next n = B.next n

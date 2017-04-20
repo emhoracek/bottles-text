@@ -24,9 +24,9 @@ quantity :: BottleNumber -> Text
 quantity (BottleNumber 0) = "no more"
 quantity (BottleNumber n) = tshow n
 
-action :: Int -> Text
-action 0 = "Go to the store and buy some more"
-action n = "Take " <> pronoun n <> " down and pass it around"
+action :: BottleNumber -> Text
+action (BottleNumber 0) = "Go to the store and buy some more"
+action (BottleNumber n) = "Take " <> pronoun n <> " down and pass it around"
 
 next :: Int -> Int
 next 0 = 99
