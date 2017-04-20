@@ -7,6 +7,7 @@ import qualified Data.Text       as T
 import           Test.Hspec
 import           Test.QuickCheck
 
+import           BottleNumber
 import           Bottles
 
 removeSpaces :: Text -> Text
