@@ -39,18 +39,6 @@ verse n =
     B.action bn <> ", " <>
     B.quantity (B.next bn) <> " " <> B.container (B.next bn) <> " of beer on the wall."
 
-container :: Int -> Text
-container n = B.container (B.BottleNumber n)
-
-quantity :: Int -> Text
-quantity n = B.quantity (B.BottleNumber n)
-
-action :: Int -> Text
-action n = B.action (B.BottleNumber n)
-
-next :: Int -> Int
-next n = B.bNumber (B.next (B.BottleNumber n))
-
 through :: Int -> Int -> [Int]
 through n1 n2 =
   if n1 > n2 then [n1, n1-1..n2]
