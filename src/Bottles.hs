@@ -33,8 +33,8 @@ verse n =
   let bn' = mkBottleNumber n in
     capitalize (tshow bn') <> " of beer on the wall, " <>
     tshow bn' <> " of beer. \n" <>
-    action' bn' <> ", " <>
-    tshow (next' bn') <> " of beer on the wall."
+    action bn' <> ", " <>
+    tshow (next bn') <> " of beer on the wall."
 
 through :: Int -> Int -> [Int]
 through n1 n2 =
