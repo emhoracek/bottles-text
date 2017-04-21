@@ -19,7 +19,7 @@ data BottleNumber' =
                 , quantity'  :: Text
                 , action'    :: Text
                 , pronoun'   :: Text
-                , next'      :: BottleNumber }
+                , next'      :: BottleNumber' }
 
 instance Show BottleNumber' where
   show bn = T.unpack $ quantity' bn <> " " <> container' bn
@@ -34,7 +34,7 @@ mkBottleNumber n =
                     , quantity' = quantity bn
                     , action' = action bn
                     , pronoun' = pronoun bn
-                    , next' = next bn }
+                    , next' = toBottleNumber' (next bn) }
 
 container :: BottleNumber -> Text
 container (BottleNumber 1) = "bottle"
