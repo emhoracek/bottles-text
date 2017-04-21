@@ -27,7 +27,24 @@ instance Show BottleNumber' where
 toBottleNumber' :: BottleNumber -> BottleNumber'
 toBottleNumber' (BottleNumber n) = mkBottleNumber n
 
+-- we have three cases in the flocked five -- 0, 1, and n
+-- so make three cases
+
 mkBottleNumber :: Int -> BottleNumber'
+mkBottleNumber n@0 =
+  let bn = BottleNumber n in
+      BottleNumber' { container' = container bn
+                    , quantity' = quantity bn
+                    , action' = action bn
+                    , pronoun' = pronoun bn
+                    , next' = toBottleNumber' (next bn) }
+mkBottleNumber n@1 =
+  let bn = BottleNumber n in
+      BottleNumber' { container' = container bn
+                    , quantity' = quantity bn
+                    , action' = action bn
+                    , pronoun' = pronoun bn
+                    , next' = toBottleNumber' (next bn) }
 mkBottleNumber n =
   let bn = BottleNumber n in
       BottleNumber' { container' = container bn
