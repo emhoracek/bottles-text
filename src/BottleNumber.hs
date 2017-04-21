@@ -9,8 +9,6 @@ import qualified Data.Text   as T
 tshow :: Show a => a -> Text
 tshow = T.pack . show
 
-newtype BottleNumber = BottleNumber { bNumber :: Int }
-
 data BottleNumber' =
   BottleNumber' { container' :: Text
                 , quantity'  :: Text
