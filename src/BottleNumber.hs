@@ -23,9 +23,6 @@ data BottleNumber' =
 instance Show BottleNumber' where
   show bn = T.unpack $ quantity' bn <> " " <> container' bn
 
-toBottleNumber' :: BottleNumber -> BottleNumber'
-toBottleNumber' (BottleNumber n) = mkBottleNumber n
-
 -- we have three cases in the flocked five -- 0, 1, and n
 -- so make three cases
 -- I probably should've made verse use BottleNumber' sooner
