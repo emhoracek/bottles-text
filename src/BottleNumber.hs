@@ -28,16 +28,16 @@ instance Show BottleNumber where
 -- What if I inline the pronoun?
 
 mkBottleNumber :: Int -> BottleNumber
-mkBottleNumber n@0 =
+mkBottleNumber 0 =
   BottleNumber { container = "bottles"
                , quantity = "no more"
                , action = "Go to the store and buy some more"
                , next = mkBottleNumber 99 }
-mkBottleNumber n@1 =
+mkBottleNumber 1 =
   BottleNumber { container = "bottle"
-               , quantity = tshow n
+               , quantity = "1"
                , action = "Take it down and pass it around"
-               , next = mkBottleNumber (n - 1) }
+               , next = mkBottleNumber 0 }
 mkBottleNumber n =
   BottleNumber { container = "bottles"
                , quantity = tshow n
