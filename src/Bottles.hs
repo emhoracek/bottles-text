@@ -30,7 +30,8 @@ verse :: Int -> Text
 -- In Ruby, authors ran into a type error here!! So that is funny.. :)
 -- Not sure how Liskov Substitution works here-- something to think about
 verse n =
-  let bn = BottleNumber n in
+  let bn = BottleNumber n
+      bn' = mkBottleNumber n in
     capitalize (tshow bn) <> " of beer on the wall, " <>
     tshow bn <> " of beer. \n" <>
     action bn <> ", " <>
