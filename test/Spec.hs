@@ -2,9 +2,10 @@
 
 module Main where
 
-import           Data.Text       (Text)
-import qualified Data.Text       as T
-import           Test.Hspec
+import           Data.Text                      (Text)
+import qualified Data.Text                      as T
+import           Test.Hspec                     hiding (shouldBe)
+import           Test.Hspec.Expectations.Pretty
 import           Test.QuickCheck
 
 import           BottleNumber
@@ -46,6 +47,7 @@ main = hspec $ do
                       \Go to the store and buy some more, \
                       \99 bottles of beer on the wall."
       verse 0 `shouldBe` lastVerse
+
   describe "verses" $ do
     it "should display a couple of verses" $ do
       let verses98and97 = "98 bottles of beer on the wall, \
@@ -74,6 +76,17 @@ main = hspec $ do
                          \Go to the store and buy some more, \
                          \99 bottles of beer on the wall."
       verses 2 0 `shouldBe` verses2thru0
+    it "should mention 6-packs" $ do
+      let verses7and6 = "7 bottles of beer on the wall, \
+                        \7 bottles of beer. \n\
+                        \Take one down and pass it around, \
+                        \1 six-pack of beer on the wall.\
+                        \\n\n\
+                        \1 six-pack of beer on the wall, \
+                        \1 six-pack of beer. \n\
+                        \Take one down and pass it around, \
+                        \5 bottles of beer on the wall."
+      verses 7 6 `shouldBe` verses7and6
 
 
     -- Before I read the bit about testing one function against another
