@@ -32,6 +32,10 @@ toBottleNumber' (BottleNumber n) = mkBottleNumber n
 -- I probably should've made verse use BottleNumber' sooner
 -- so the tests were meaningful earlier.
 
+-- Now I want to get rid of the "BottleNumber"s in mkBottleNumber,
+-- but I can't because action is still using pronoun.
+-- What if I inline the pronoun?
+
 mkBottleNumber :: Int -> BottleNumber'
 mkBottleNumber n@0 =
   let bn = BottleNumber n in
@@ -44,14 +48,14 @@ mkBottleNumber n@1 =
   let bn = BottleNumber n in
       BottleNumber' { container' = "bottle"
                     , quantity' = tshow n
-                    , action' = "Take " <> pronoun bn <> " down and pass it around"
+                    , action' = "Take it down and pass it around"
                     , pronoun' = "it"
                     , next' = toBottleNumber' (BottleNumber (n - 1)) }
 mkBottleNumber n =
   let bn = BottleNumber n in
       BottleNumber' { container' = "bottles"
                     , quantity' = tshow n
-                    , action' = "Take " <> pronoun bn <> " down and pass it around"
+                    , action' = "Take one down and pass it around"
                     , pronoun' = "one"
                     , next' = toBottleNumber' (BottleNumber (n - 1)) }
 
