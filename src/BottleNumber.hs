@@ -24,6 +24,15 @@ data BottleNumber' =
 instance Show BottleNumber' where
   show bn = T.unpack $ quantity' bn <> " " <> container' bn
 
+mkBottleNumber :: Int -> BottleNumber'
+mkBottleNumber n =
+  let bn = BottleNumber n in
+      BottleNumber' { container' = container bn
+                    , quantity' = quantity bn
+                    , action' = action bn
+                    , pronoun' = pronoun bn
+                    , next' = next bn }
+
 container :: BottleNumber -> Text
 container (BottleNumber 1) = "bottle"
 container n = "bottles"
