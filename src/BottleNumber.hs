@@ -37,23 +37,20 @@ toBottleNumber' (BottleNumber n) = mkBottleNumber n
 
 mkBottleNumber :: Int -> BottleNumber'
 mkBottleNumber n@0 =
-  let bn = BottleNumber n in
-      BottleNumber' { container' = "bottles"
-                    , quantity' = "no more"
-                    , action' = "Go to the store and buy some more"
-                    , next' = toBottleNumber' (BottleNumber 99) }
+  BottleNumber' { container' = "bottles"
+                , quantity' = "no more"
+                , action' = "Go to the store and buy some more"
+                , next' = toBottleNumber' (BottleNumber 99) }
 mkBottleNumber n@1 =
-  let bn = BottleNumber n in
-      BottleNumber' { container' = "bottle"
-                    , quantity' = tshow n
-                    , action' = "Take it down and pass it around"
-                    , next' = toBottleNumber' (BottleNumber (n - 1)) }
+  BottleNumber' { container' = "bottle"
+                , quantity' = tshow n
+                , action' = "Take it down and pass it around"
+                , next' = toBottleNumber' (BottleNumber (n - 1)) }
 mkBottleNumber n =
-  let bn = BottleNumber n in
-      BottleNumber' { container' = "bottles"
-                    , quantity' = tshow n
-                    , action' = "Take one down and pass it around"
-                    , next' = toBottleNumber' (BottleNumber (n - 1)) }
+  BottleNumber' { container' = "bottles"
+                , quantity' = tshow n
+                , action' = "Take one down and pass it around"
+                , next' = toBottleNumber' (BottleNumber (n - 1)) }
 
 container :: BottleNumber -> Text
 container (BottleNumber 1) = "bottle"
