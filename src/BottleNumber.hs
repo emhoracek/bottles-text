@@ -24,6 +24,9 @@ data BottleNumber' =
 instance Show BottleNumber' where
   show bn = T.unpack $ quantity' bn <> " " <> container' bn
 
+toBottleNumber' :: BottleNumber -> BottleNumber'
+toBottleNumber' (BottleNumber n) = mkBottleNumber n
+
 mkBottleNumber :: Int -> BottleNumber'
 mkBottleNumber n =
   let bn = BottleNumber n in
