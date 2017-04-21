@@ -29,6 +29,8 @@ toBottleNumber' (BottleNumber n) = mkBottleNumber n
 
 -- we have three cases in the flocked five -- 0, 1, and n
 -- so make three cases
+-- I probably should've made verse use BottleNumber' sooner
+-- so the tests were meaningful earlier.
 
 mkBottleNumber :: Int -> BottleNumber'
 mkBottleNumber n@0 =
@@ -36,21 +38,21 @@ mkBottleNumber n@0 =
       BottleNumber' { container' = "bottles"
                     , quantity' = "no more"
                     , action' = "Go to the store and buy some more"
-                    , pronoun' = pronoun bn
+                    , pronoun' = "one"
                     , next' = toBottleNumber' (BottleNumber 99) }
 mkBottleNumber n@1 =
   let bn = BottleNumber n in
       BottleNumber' { container' = "bottle"
                     , quantity' = tshow n
                     , action' = "Take " <> pronoun bn <> " down and pass it around"
-                    , pronoun' = pronoun bn
+                    , pronoun' = "it"
                     , next' = toBottleNumber' (BottleNumber (n - 1)) }
 mkBottleNumber n =
   let bn = BottleNumber n in
       BottleNumber' { container' = "bottles"
                     , quantity' = tshow n
                     , action' = "Take " <> pronoun bn <> " down and pass it around"
-                    , pronoun' = pronoun bn
+                    , pronoun' = "one"
                     , next' = toBottleNumber' (BottleNumber (n - 1)) }
 
 container :: BottleNumber -> Text
