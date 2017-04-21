@@ -45,23 +45,3 @@ mkBottleNumber n =
                 , quantity' = tshow n
                 , action' = "Take one down and pass it around"
                 , next' = mkBottleNumber (n - 1) }
-
-container :: BottleNumber -> Text
-container (BottleNumber 1) = "bottle"
-container n = "bottles"
-
-quantity :: BottleNumber -> Text
-quantity (BottleNumber 0) = "no more"
-quantity (BottleNumber n) = tshow n
-
-action :: BottleNumber -> Text
-action (BottleNumber 0) = "Go to the store and buy some more"
-action bn = "Take " <> pronoun bn <> " down and pass it around"
-
-pronoun :: BottleNumber -> Text
-pronoun (BottleNumber 1) = "it"
-pronoun n = "one"
-
-next :: BottleNumber -> BottleNumber
-next (BottleNumber 0) = BottleNumber 99
-next (BottleNumber n) = BottleNumber (n - 1)
