@@ -18,15 +18,6 @@ data BottleNumber =
 instance Show BottleNumber where
   show bn = T.unpack $ quantity bn <> " " <> container bn
 
--- we have three cases in the flocked five -- 0, 1, and n
--- so make three cases
--- I probably should've made verse use BottleNumber sooner
--- so the tests were meaningful earlier.
-
--- Now I want to get rid of the "BottleNumber"s in mkBottleNumber,
--- but I can't because action is still using pronoun.
--- What if I inline the pronoun?
-
 mkBottleNumber :: Int -> BottleNumber
 mkBottleNumber 0 =
   BottleNumber { container = "bottles"
