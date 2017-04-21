@@ -18,7 +18,6 @@ data BottleNumber' =
   BottleNumber' { container' :: Text
                 , quantity'  :: Text
                 , action'    :: Text
-                , pronoun'   :: Text
                 , next'      :: BottleNumber' }
 
 instance Show BottleNumber' where
